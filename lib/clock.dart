@@ -33,6 +33,11 @@ class _ClockState extends State<Clock> {
     updateTime();
   }
 
+  ///checks if orientation is portrait and returns a boolean
+  bool checkPortrait(Orientation orientation) {
+    return orientation == Orientation.portrait;
+  }
+
   ///wakelock button handler
   void wakeState() {
     setState(
@@ -97,9 +102,9 @@ class _ClockState extends State<Clock> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
-            flex: orientation == Orientation.portrait ? 30 : 18,
+            flex: checkPortrait(orientation) ? 30 : 18,
             child: Padding(
-              padding: orientation == Orientation.portrait
+              padding: checkPortrait(orientation)
                   ? const EdgeInsets.only(top: 32.0)
                   : const EdgeInsets.only(top: 64.0),
               child: Center(
@@ -107,7 +112,7 @@ class _ClockState extends State<Clock> {
                   timeText,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: orientation == Orientation.portrait ? 84 : 164,
+                    fontSize: checkPortrait(orientation) ? 84 : 164,
                     fontFamily: 'Prism',
                   ),
                 ),
@@ -115,7 +120,7 @@ class _ClockState extends State<Clock> {
             ),
           ),
           Expanded(
-            flex: orientation == Orientation.portrait ? 2 : 3,
+            flex: checkPortrait(orientation) ? 2 : 3,
             child: Center(
               child: CupertinoSlidingSegmentedControl(
                 backgroundColor: Colors.blueGrey.shade600,
