@@ -49,7 +49,8 @@ class _ClockState extends State<Clock> {
   }
 
   ///update time formatter
-  Function updateTimeFormatter(String formatName) => formatName == '12' ? format12Hour : format24Hour;
+  Function updateTimeFormatter(String formatName) =>
+      formatName == '12' ? format12Hour : format24Hour;
 
   ///returns time as a string in 12 hour format
   static String format12Hour() {
@@ -98,7 +99,9 @@ class _ClockState extends State<Clock> {
           Expanded(
             flex: orientation == Orientation.portrait ? 30 : 18,
             child: Padding(
-              padding: orientation == Orientation.portrait ? const EdgeInsets.only(top: 32.0) : const EdgeInsets.only(top: 64.0),
+              padding: orientation == Orientation.portrait
+                  ? const EdgeInsets.only(top: 32.0)
+                  : const EdgeInsets.only(top: 64.0),
               child: Center(
                 child: Text(
                   timeText,
@@ -116,37 +119,38 @@ class _ClockState extends State<Clock> {
             child: Center(
               child: CupertinoSlidingSegmentedControl(
                 backgroundColor: Colors.blueGrey.shade600,
-              thumbColor: Colors.blueGrey.shade700,
-              groupValue: currentTimeFormatStr,
-              children: {
-                '12': Container(
-                  child: Center(
-                    child: Text(
-                      '12 Hours',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontFamily: 'Montserrat',
+                thumbColor: Colors.blueGrey.shade700,
+                groupValue: currentTimeFormatStr,
+                children: {
+                  '12': Container(
+                    child: Center(
+                      child: Text(
+                        '12 Hours',
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                '24': Container(
-                  child: Center(
-                    child: Text(
-                      '24 Hours',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontFamily: 'Montserrat',
+                  '24': Container(
+                    child: Center(
+                      child: Text(
+                        '24 Hours',
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontFamily: 'Montserrat',
+                        ),
                       ),
                     ),
                   ),
-                ),
-              },
-              onValueChanged: (fmt) {
+                },
+                onValueChanged: (fmt) {
                   currentTimeFormatStr = fmt;
                   whichFormat = updateTimeFormatter(fmt);
-              },
-            )),
+                },
+              ),
+            ),
           ),
           Expanded(
             flex: 3,
