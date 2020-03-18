@@ -34,9 +34,7 @@ class _ClockState extends State<Clock> {
   }
 
   ///checks if orientation is portrait and returns a boolean
-  bool checkPortrait(Orientation orientation) {
-    return orientation == Orientation.portrait;
-  }
+  bool checkPortrait(Orientation orientation) => orientation == Orientation.portrait;
 
   ///wakelock button handler
   void wakeState() {
