@@ -10,9 +10,9 @@ class Clock extends StatefulWidget {
 class _ClockState extends State<Clock> {
   static DateTime curTime = DateTime.now();
 
-  String timeText = '${curTime.hour.toString().padLeft(2, '0')}:'
-      '${curTime.minute.toString().padLeft(2, '0')}:'
-      '${curTime.second.toString().padLeft(2, '0')}';
+  String timeText = '${padTime(curTime.hour.toString())}:'
+      '${padTime(curTime.minute.toString())}:'
+      '${padTime(curTime.second.toString())}';
 
   Color btnTextColor = Colors.white38;
   Color disabledBtnTextColor = Colors.white38;
